@@ -1,6 +1,5 @@
 package com.rafayel.gameengine;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
@@ -8,22 +7,28 @@ import java.util.concurrent.TimeUnit;
 
 public class Renderer {
     private List<ScreenObject> objects;
-    private Hashtable<String, Integer> sizes = new Hashtable<String, Integer>();
+    private Hashtable<String, Integer> sizes = new Hashtable<>();
     private String std;
     private Integer delay = 0;
+    private String spacer = "";
 
     Renderer (Integer field_width, Integer field_height, String std_char){
-        objects = new ArrayList<ScreenObject>();
+        objects = new ArrayList<>();
         std = Character.toString(std_char.charAt(0));
         sizes.put("width", field_width);
         sizes.put("height", field_height);
+        for (int i = 0; i < 100; i++) {
+            spacer += "\n";
+        }
     }
 
     public void setDelay(Integer milliseconds){
         delay = milliseconds;
     }
 
-    public void setStdChar(String std_char){std = std_char;}
+    public void setStdChar(String std_char) {
+        std = std_char;
+    }
 
     public void setSizes(Integer width, Integer height){
         sizes.put("width", width);
@@ -54,15 +59,15 @@ public class Renderer {
         }
     }
 
-    public void addString(Integer x, Integer y, String string){
-        for (int i=0; i<string.length(); i++){
-            addObject(x + i, y, Character.toString(string.charAt(i)));
-        }
-    }
-
     public void addRect(Integer x1, Integer x2, Integer y1, Integer y2){
         //Add a rectangle containing the standard symbol to the screen
         addRect(x1, x2, y1, y2, std);
+    }
+
+    public void addString(Integer x, Integer y, String string) {
+        for (int i = 0; i < string.length(); i++) {
+            addObject(x + i, y, Character.toString(string.charAt(i)));
+        }
     }
 
     private void clearScreen(){
@@ -72,9 +77,10 @@ public class Renderer {
 
     private void clearConsole(){
         //TODO Make the clear algorithm
+        System.out.print(spacer);
     }
 
-    public void render(Boolean clear_screen, Boolean clear_objects) throws IOException, InterruptedException {
+    public void render(Boolean clear_screen, Boolean clear_objects) throws InterruptedException {
         //Clear console screen of the option is enabled
         if (clear_screen){clearConsole();}
 
