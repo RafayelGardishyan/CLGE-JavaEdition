@@ -76,7 +76,6 @@ public class Renderer {
     }
 
     private void clearConsole(){
-        //TODO Make the clear algorithm
         System.out.print(spacer);
     }
 
@@ -124,5 +123,9 @@ public class Renderer {
         //Do the optional options
         TimeUnit.MILLISECONDS.sleep(delay);
         if (clear_objects){clearScreen();}
+    }
+
+    public String toString() {
+        return "Renderer Class";
     }
 }

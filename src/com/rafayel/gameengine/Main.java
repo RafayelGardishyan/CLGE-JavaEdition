@@ -5,6 +5,11 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) throws IOException, InterruptedException {
+        ////Testing Sound Player
+
+        //Play Sound
+        SoundPlayer.PlaySound("C:\\Users\\rgard\\Github\\CLGE\\snake_sound\\level_up.wav");
+
         //// Testing Renderer
 
         //Create the "Renderer" object

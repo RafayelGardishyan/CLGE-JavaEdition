@@ -20,4 +20,8 @@ public class ScreenObject {
     public String getSymbol(){
         return thisSymbol;
     }
+
+    public String toString() {
+        return "Screen Object Class";
+    }
 }
