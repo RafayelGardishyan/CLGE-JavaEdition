@@ -6,11 +6,11 @@ import javax.sound.sampled.Clip;
 import java.io.File;
 
 public class SoundPlayer {
-    public static synchronized void PlaySoundAsync(final String fileName) {
-        new Thread(() -> PlaySound(fileName)).start();
+    public static synchronized void playSoundAsync(final String fileName) {
+        new Thread(() -> playSound(fileName)).start();
     }
 
-    public static void PlaySound(String fileName) {
+    public static void playSound(String fileName) {
         try {
                 Clip clip = AudioSystem.getClip();
                 AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File(fileName));
@@ -18,7 +18,7 @@ public class SoundPlayer {
                 clip.start();
             } catch (Exception e) {
                 System.out.println(e.toString());
-                System.exit(1);
+                Runtime.getRuntime().exit(1);
             }
     }
 
