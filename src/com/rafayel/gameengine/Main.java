@@ -9,11 +9,11 @@ public class Main {
         ////Testing Sound Player
 
         //Play Sound (Not Async)
-        SoundPlayer.PlaySound("C:\\Users\\rgard\\Github\\CLGE\\snake_sound\\level_up.wav");
+        SoundPlayer.playSound("C:\\Users\\rgard\\Github\\CLGE\\snake_sound\\level_up.wav");
         Utils.Delay(1000);
 
         //Play Sound (Async)
-        SoundPlayer.PlaySoundAsync("C:\\Users\\rgard\\Github\\CLGE\\snake_sound\\level_up.wav");
+        SoundPlayer.playSoundAsync("C:\\Users\\rgard\\Github\\CLGE\\snake_sound\\level_up.wav");
 
         //// Testing Renderer
 
