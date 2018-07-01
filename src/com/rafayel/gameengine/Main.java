@@ -1,14 +1,19 @@
 package com.rafayel.gameengine;
 
-import java.io.IOException;
-
 public class Main {
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
+        ////Testing Utilities
+        Utils.Delay(1000);
+
         ////Testing Sound Player
 
-        //Play Sound
+        //Play Sound (Not Async)
         SoundPlayer.PlaySound("C:\\Users\\rgard\\Github\\CLGE\\snake_sound\\level_up.wav");
+        Utils.Delay(1000);
+
+        //Play Sound (Async)
+        SoundPlayer.PlaySoundAsync("C:\\Users\\rgard\\Github\\CLGE\\snake_sound\\level_up.wav");
 
         //// Testing Renderer
 

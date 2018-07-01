@@ -3,7 +3,6 @@ package com.rafayel.gameengine;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class Renderer {
     private List<ScreenObject> objects;
@@ -121,7 +120,7 @@ public class Renderer {
         System.out.println(frame);
 
         //Do the optional options
-        TimeUnit.MILLISECONDS.sleep(delay);
+        Utils.Delay(delay);
         if (clear_objects){clearScreen();}
     }
 
