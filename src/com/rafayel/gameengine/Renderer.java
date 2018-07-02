@@ -79,19 +79,20 @@ public class Renderer {
     }
 
     private String checkElements(Integer i, Integer j, String frame){
+      String tmpframe = frame;
       Boolean obj_set = false;
       for (ScreenObject so : objects){
                     //Check object x and y position and compare it with cursor x and y
                     if (so.getXpos() == j && so.getYpos() == i){
-                        frame += so.getSymbol();
+                        tmpframe += so.getSymbol();
                         obj_set = true;
                         break;
                     }
                 }
 
                 //If no object is set in the frame: add a space
-                if (!obj_set){frame += " ";}else{obj_set = false;}
-      return frame;
+                if (!obj_set){tmpframe += " ";}else{obj_set = false;}
+      return tmpframe;
     }
 
     public void render(Boolean clear_screen, Boolean clear_objects) throws InterruptedException {
