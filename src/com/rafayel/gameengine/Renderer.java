@@ -67,16 +67,16 @@ public class Renderer {
       String tmpframe = frame;
       Boolean obj_set = false;
       for (ScreenObject so : objects){
-                    //Check object x and y position and compare it with cursor x and y
-                    if (so.getXpos() == j && so.getYpos() == i){
-                        tmpframe += so.getSymbol();
-                        obj_set = true;
-                        break;
-                    }
-                }
+          //Check object x and y position and compare it with cursor x and y
+          if (so.getXpos() == j && so.getYpos() == i){
+              tmpframe += so.getSymbol();
+              obj_set = true;
+              break;
+          }
+       }
 
-                //If no object is set in the frame: add a space
-                if (!obj_set){tmpframe += " ";}else{obj_set = false;}
+       //If no object is set in the frame: add a space
+       if (!obj_set){tmpframe += " ";}else{obj_set = false;}
       return tmpframe;
     }
 
@@ -90,7 +90,7 @@ public class Renderer {
         //Add border top
         for (int x = 0; x < sizes.get("width") + 2; x++){frame += std;}
 
-        //Shit to the first row
+        //Shift to the first row
         frame += "\n";
 
         //Render Screen Objects
