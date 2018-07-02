@@ -6,7 +6,7 @@ public class Renderer {
     private List<ScreenObject> objects;
     private Hashtable<String, Integer> sizes = new Hashtable<>();
     private String std;
-    private Integer delay = 0;
+    private Integer _delay = 0;
     private String spacer = "";
 
     Renderer (Integer field_width, Integer field_height, String std_char){
@@ -20,7 +20,7 @@ public class Renderer {
     }
 
     public void setDelay(Integer milliseconds){
-        delay = milliseconds;
+        _delay = milliseconds;
     }
 
     public void setStdChar(String std_char) {
@@ -123,7 +123,7 @@ public class Renderer {
         System.out.println(frame);
 
         //Do the optional options
-        Utils.Delay(delay);
+        Utils.delay(_delay);
         if (clear_objects){clearScreen();}
     }
 
