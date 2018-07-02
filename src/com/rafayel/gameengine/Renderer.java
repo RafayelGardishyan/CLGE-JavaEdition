@@ -1,5 +1,3 @@
-package com.rafayel.gameengine;
-
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
@@ -78,13 +76,28 @@ public class Renderer {
         System.out.print(spacer);
     }
 
+    private String checkElements(Integer i, Integer j, String frame){
+      Boolean obj_set = false;
+      for (ScreenObject so : objects){
+                    //Check object x and y position and compare it with cursor x and y
+                    if (so.getXpos() == j && so.getYpos() == i){
+                        frame += so.getSymbol();
+                        obj_set = true;
+                        break;
+                    }
+                }
+
+                //If no object is set in the frame: add a space
+                if (!obj_set){frame += " ";}else{obj_set = false;}
+      return frame;
+    }
+
     public void render(Boolean clear_screen, Boolean clear_objects) throws InterruptedException {
         //Clear console screen of the option is enabled
         if (clear_screen){clearConsole();}
 
         //Initializing variables
         String frame = "";
-        Boolean obj_set = false;
 
         //Add border top
         for (int x = 0; x < sizes.get("width") + 2; x++){frame += std;}
@@ -97,17 +110,7 @@ public class Renderer {
             //Add row left border
             frame += std;
             for (int j=0; j < sizes.get("width"); j++){
-                for (ScreenObject so : objects){
-                    //Check object x and y position and compare it with cursor x and y
-                    if (so.getXpos() == j && so.getYpos() == i){
-                        frame += so.getSymbol();
-                        obj_set = true;
-                        break;
-                    }
-                }
-
-                //If no object is set in the frame: add a space
-                if (!obj_set){frame += " ";}else{obj_set = false;}
+                frame = checkElements(i, j, frame);
             }
             //Add row right border; Shift to the next row
             frame += std + "\n";
