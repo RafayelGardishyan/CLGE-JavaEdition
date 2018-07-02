@@ -36,6 +36,7 @@ public class Main {
             }
         }
 
+
         //Change size of the field
         r.setSizes(40, 20);
 
