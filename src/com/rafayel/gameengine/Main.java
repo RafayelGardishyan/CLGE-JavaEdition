@@ -5,6 +5,7 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         ////Testing Utilities
         Utils.delay(1000);
+        for (int i = 0; i < 10; i++) System.out.println(Utils.random(i, 100 + i));
 
         ////Testing Sound Player
 
@@ -21,7 +22,7 @@ public class Main {
         Renderer r = new Renderer(20, 20, "#");
 
         //Set delay
-        r.setDelay(20);
+        r.setDelay(40);
 
         //Render an empty screen
         r.render(true, false);
