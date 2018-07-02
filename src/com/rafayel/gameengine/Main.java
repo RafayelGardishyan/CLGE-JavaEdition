@@ -10,7 +10,7 @@ public class Main {
 
         //Play Sound (Not Async)
         SoundPlayer.playSound("C:\\Users\\rgard\\Github\\CLGE\\snake_sound\\level_up.wav");
-        Utils.Delay(1000);
+        Utils.delay(1000);
 
         //Play Sound (Async)
         SoundPlayer.playSoundAsync("C:\\Users\\rgard\\Github\\CLGE\\snake_sound\\level_up.wav");
@@ -37,6 +37,9 @@ public class Main {
 
         //Change size of the field
         r.setSizes(40, 20);
+
+        //Change the standard char
+        r.setStdChar("O");
 
         //Change delay
         r.setDelay(1000);

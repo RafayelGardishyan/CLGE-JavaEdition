@@ -64,31 +64,31 @@ public class Renderer {
     }
 
     private String checkElements(Integer i, Integer j, String frame){
-      String tmpframe = frame;
-      Boolean obj_set = false;
-      for (ScreenObject so : objects){
-          //Check object x and y position and compare it with cursor x and y
-          if (so.getXpos() == j && so.getYpos() == i){
-              tmpframe += so.getSymbol();
-              obj_set = true;
-              break;
-          }
-       }
+        String tmpframe = frame;
+        Boolean obj_set = false;
+        for (ScreenObject so : objects){
+            //Check object x and y position and compare it with cursor x and y
+            if (so.getXpos().equals(j) && so.getYpos().equals(i)){
+                tmpframe += so.getSymbol();
+                obj_set = true;
+                break;
+            }
+         }
 
-       //If no object is set in the frame: add a space
-       if (!obj_set){tmpframe += " ";}else{obj_set = false;}
-      return tmpframe;
+         //If no object is set in the frame: add a space
+         if (!obj_set) tmpframe += " "; else obj_set = false;
+         return tmpframe;
     }
 
     public void render(Boolean clear_screen, Boolean clear_objects) throws InterruptedException {
         //Clear console screen of the option is enabled
-        if (clear_screen){clearConsole();}
+        if (clear_screen) clearConsole();
 
         //Initializing variables
         String frame = "";
 
         //Add border top
-        for (int x = 0; x < sizes.get("width") + 2; x++){frame += std;}
+        for (int x = 0; x < sizes.get("width") + 2; x++) frame += std;
 
         //Shift to the first row
         frame += "\n";
@@ -105,13 +105,13 @@ public class Renderer {
         }
 
         //Add border bottom
-        for (int x = 0; x < sizes.get("width") + 2; x++){frame += std;}
+        for (int x = 0; x < sizes.get("width") + 2; x++) frame += std;
 
         //Print the frame
         System.out.println(frame);
 
         //Do the optional options
         Utils.delay(_delay);
-        if (clear_objects){clearScreen();}
+        if (clear_objects) clearScreen();
     }
 }

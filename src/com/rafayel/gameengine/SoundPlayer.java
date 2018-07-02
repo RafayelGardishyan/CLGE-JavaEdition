@@ -4,6 +4,7 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import java.io.File;
+import java.io.IOException;
 
 public class SoundPlayer {
     public static synchronized void playSoundAsync(final String fileName) {
@@ -17,8 +18,8 @@ public class SoundPlayer {
                 clip.open(inputStream);
                 clip.start();
             } catch (Exception e) {
+                System.out.println("Can't play sound");
                 System.out.println(e.toString());
-                throw new java.lang.Error("Core Error: Something went wrong");
             }
     }
 
