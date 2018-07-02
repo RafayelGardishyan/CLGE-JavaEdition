@@ -19,14 +19,17 @@ public class Main {
         SoundPlayer.playSoundAsync("C:\\Users\\rgard\\Github\\CLGE\\snake_sound\\level_up.wav");
     }
 
-    private static void testRenderer() throws InterruptedException {
-        //// Testing Renderer
+    private static Renderer testRendererUtils(Renderer r) throws InterruptedException {
         //Create the "Renderer" object
-        Renderer r = new Renderer(20, 20, "#");
+        Renderer _r = r;
         //Set delay
-        r.setDelay(40);
+        _r.setDelay(40);
         //Render an empty screen
-        r.render(true, false);
+        _r.render(true, false);
+        return _r;
+    }
+
+    private static void testRendererRendering(Renderer r) throws InterruptedException {
         //Render an animation of moving "i" from the left top corner to the right bottom corner
         for (int i = 0; i < 20; i++) {
             for (int j = 19; j > 0; j--) {
@@ -58,6 +61,12 @@ public class Main {
         //Add an other string without removing the previous objects
         r.addString(6, 11, "The End!");
         r.render(true, false);
+    }
+
+    private static void testRenderer() throws InterruptedException {
+        //// Testing Renderer
+        Renderer r = testRendererUtils(new Renderer(20, 20, "#"));
+        testRendererRendering(r);
     }
 
 
