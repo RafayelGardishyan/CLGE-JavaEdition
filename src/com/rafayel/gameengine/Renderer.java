@@ -39,16 +39,6 @@ public class Renderer {
         if (x < sizes.get("width") && y < sizes.get("height")){objects.add(new ScreenObject(x, y, Character.toString(symbol .charAt(0))));}
     }
 
-    public void addObject(Integer x, Integer y){
-        //Add an object containing the standard symbol to the screen
-        addObject(x, y, std);
-    }
-
-    public void addObject(ScreenObject so){
-        //Add an existing "ScreenObject" instance to the screen
-        objects.add(so);
-    }
-
     public void addRect(Integer x1, Integer x2, Integer y1, Integer y2, String symbol){
         //Add a rectangle to the screen
         for (int i=0; i < Math.abs(x1 - x2); i++){
@@ -56,11 +46,6 @@ public class Renderer {
                 addObject(x1 + i, y1 + j, symbol);
             }
         }
-    }
-
-    public void addRect(Integer x1, Integer x2, Integer y1, Integer y2){
-        //Add a rectangle containing the standard symbol to the screen
-        addRect(x1, x2, y1, y2, std);
     }
 
     public void addString(Integer x, Integer y, String string) {
@@ -128,9 +113,5 @@ public class Renderer {
         //Do the optional options
         Utils.delay(_delay);
         if (clear_objects){clearScreen();}
-    }
-
-    public String toString() {
-        return "Renderer Class";
     }
 }
