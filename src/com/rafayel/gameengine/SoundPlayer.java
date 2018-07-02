@@ -18,7 +18,7 @@ public class SoundPlayer {
                 clip.start();
             } catch (Exception e) {
                 System.out.println(e.toString());
-                Runtime.getRuntime().exit(1);
+                throw new java.lang.Error("Core Error: Something went wrong");
             }
     }
 
