@@ -4,7 +4,6 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import java.io.File;
-import java.io.IOException;
 
 public class SoundPlayer {
     public static synchronized void playSoundAsync(final String fileName) {
@@ -23,7 +22,4 @@ public class SoundPlayer {
             }
     }
 
-    public String toString() {
-        return "Sound Player Class";
-    }
 }
