@@ -39,11 +39,15 @@ public class Renderer {
         if (x < sizes.get("width") && y < sizes.get("height")){objects.add(new ScreenObject(x, y, Character.toString(symbol .charAt(0))));}
     }
 
-    public void addRect(Integer x1, Integer x2, Integer y1, Integer y2, String symbol){
+    public void addRect(Integer[] StartPoints, Integer[] EndPoints, String symbol) {
+        /* StartPoints = [x1, y1]
+         * EndPoints   = [x2, y2]
+         * Symbol      = "C"
+         */
         //Add a rectangle to the screen
-        for (int i=0; i < Math.abs(x1 - x2); i++){
-            for (int j=0; j < Math.abs(y1 - y2); j++){
-                addObject(x1 + i, y1 + j, symbol);
+        for (int i = 0; i < Math.abs(StartPoints[0] - EndPoints[0]); i++) {
+            for (int j = 0; j < Math.abs(StartPoints[1] - EndPoints[1]); j++) {
+                addObject(StartPoints[0] + i, StartPoints[1] + j, symbol);
             }
         }
     }

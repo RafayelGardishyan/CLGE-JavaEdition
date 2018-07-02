@@ -46,7 +46,13 @@ public class Main {
         r.setDelay(1000);
 
         //Render a rectangle
-        r.addRect(1, 39, 1, 19, "X");
+        Integer[] startp = new Integer[2];
+        Integer[] endp = new Integer[2];
+        startp[0] = 1;
+        startp[1] = 1;
+        endp[0] = 39;
+        endp[1] = 19;
+        r.addRect(startp, endp, "X");
         r.render(true, true);
 
         //Change the size back
