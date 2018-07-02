@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
         ////Testing Utilities
-        Utils.Delay(1000);
+        Utils.delay(1000);
 
         ////Testing Sound Player
 
