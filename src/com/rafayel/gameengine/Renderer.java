@@ -45,8 +45,8 @@ public class Renderer {
          * Symbol      = "C"
          */
         //Add a rectangle to the screen
-        for (int i = 0; i < Math.abs(StartPoints[0] - EndPoints[0]); i++) {
-            for (int j = 0; j < Math.abs(StartPoints[1] - EndPoints[1]); j++) {
+        for (int i = 0; i <= Math.abs(StartPoints[0] - EndPoints[0]); i++) {
+            for (int j = 0; j <= Math.abs(StartPoints[1] - EndPoints[1]); j++) {
                 addObject(StartPoints[0] + i, StartPoints[1] + j, symbol);
             }
         }
@@ -117,7 +117,7 @@ public class Renderer {
         String frame = getFrame("");
 
         //Print the frame
-        System.out.println(frame);
+        System.out.print(frame);
 
         //Do the optional options
         Utils.delay(_delay);
