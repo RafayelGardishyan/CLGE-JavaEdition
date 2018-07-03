@@ -45,8 +45,8 @@ public class Renderer {
          * Symbol      = "C"
          */
         //Add a rectangle to the screen
-        for (int i = 0; i < Math.abs(StartPoints[0] - EndPoints[0]); i++) {
-            for (int j = 0; j < Math.abs(StartPoints[1] - EndPoints[1]); j++) {
+        for (int i = 0; i <= Math.abs(StartPoints[0] - EndPoints[0]); i++) {
+            for (int j = 0; j <= Math.abs(StartPoints[1] - EndPoints[1]); j++) {
                 addObject(StartPoints[0] + i, StartPoints[1] + j, symbol);
             }
         }
@@ -84,35 +84,40 @@ public class Renderer {
          return tmpframe;
     }
 
+    private String getFrame(String frame){
+        String _frame = frame;
+        //Add border top
+        for (int x = 0; x < sizes.get("width") + 2; x++) _frame += std;
+
+        //Shift to the first row
+        _frame += "\n";
+
+        //Render Screen Objects
+        for (int i=0; i < sizes.get("height"); i++){
+            //Add row left border
+            _frame += std;
+            for (int j=0; j < sizes.get("width"); j++){
+                _frame = checkElements(i, j, _frame);
+            }
+            //Add row right border; Shift to the next row
+            _frame += std + "\n";
+        }
+
+        //Add border bottom
+        for (int x = 0; x < sizes.get("width") + 2; x++) _frame += std;
+
+        return _frame;
+    }
+
     public void render(Boolean clear_screen, Boolean clear_objects) throws InterruptedException {
         //Clear console screen of the option is enabled
         if (clear_screen) clearConsole();
 
         //Initializing variables
-        String frame = "";
-
-        //Add border top
-        for (int x = 0; x < sizes.get("width") + 2; x++) frame += std;
-
-        //Shift to the first row
-        frame += "\n";
-
-        //Render Screen Objects
-        for (int i=0; i < sizes.get("height"); i++){
-            //Add row left border
-            frame += std;
-            for (int j=0; j < sizes.get("width"); j++){
-                frame = checkElements(i, j, frame);
-            }
-            //Add row right border; Shift to the next row
-            frame += std + "\n";
-        }
-
-        //Add border bottom
-        for (int x = 0; x < sizes.get("width") + 2; x++) frame += std;
+        String frame = getFrame("");
 
         //Print the frame
-        System.out.println(frame);
+        System.out.print(frame);
 
         //Do the optional options
         Utils.delay(_delay);
