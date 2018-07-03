@@ -66,8 +66,8 @@ public class TestModules {
         assertEquals(example, outContent.toString());
     }
 
-    @Test
-    public void testSoundPlayer(){
-
-    }
+//    @Test
+//    public void testSoundPlayer(){
+//
+//    }
 }
